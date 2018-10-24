@@ -1,0 +1,16 @@
+[
+    {
+        "type":"group",
+        "title":"Comum",
+        "items":[{
+			"title":"Idioma",
+			"type":"radio",
+			"key":"lang",
+			"default": "pt-br",
+			"items":[{
+				"value":"pt-br",
+				"title":"Portugês (Brasil)"
+			}]
+		}]
+    }
+]

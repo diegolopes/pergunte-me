@@ -1,0 +1,61 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pergunte-me</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <!-- <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button> -->
+
+      <button menuClose ion-item icon-start (click)="goHome()">
+        <ion-icon name="home"></ion-icon>
+        Início
+      </button>
+
+      <button menuClose ion-item icon-start (click)="goSettings()" >
+        <ion-icon name="settings"  ></ion-icon>
+        Configurações
+      </button>
+
+      <button menuClose ion-item icon-start (click)="avaliarPrompt()" >
+        <ion-icon name="star"  ></ion-icon>
+        Avaliar
+      </button>
+
+      <!-- <button menuClose ion-item icon-start (click)="goAbout()" >
+        <ion-icon name="share"  ></ion-icon>
+        Compartilhar
+      </button> -->
+
+      <button menuClose ion-item icon-start (click)="goSite()" >
+        <ion-icon name="link"></ion-icon>
+        Visitar site
+      </button>
+
+      <button menuClose ion-item icon-start (click)="goAbout()" >
+        <ion-icon name="information-circle"  ></ion-icon>
+        Sobre o app
+      </button>
+
+      <!-- <button menuClose ion-item icon-start (click)="editarNomePrompt()"  >
+        <ion-icon name="create"></ion-icon>
+        Editar nome
+      </button> -->
+
+      <button menuClose ion-item icon-start (click)="exitApp()" >
+        <ion-icon name="exit"></ion-icon>
+        Sair
+      </button>
+
+
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

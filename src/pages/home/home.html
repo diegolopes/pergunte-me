@@ -1,0 +1,51 @@
+
+
+<ion-header>
+  <ion-navbar color="primary" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pergunte-me</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content text-center padding>
+  <h1>Bem vindo!</h1>
+  <p>
+    Responderei qualquer pergunta que você tiver se a resposta for verdadeiro
+    ou falso (sim ou não) vamos,pergunte!
+  </p>
+    <ion-item>
+        <ion-label floating>Faça sua pergunta: </ion-label>
+        <ion-input id="textoPergunta" [(ngModel)]="inputValue" type="text"></ion-input>
+      </ion-item>
+      <button id="perguntar" ion-button icon-end round text-center (click)="test()">
+          Perguntar
+        <ion-icon name="arrow-forward"  ></ion-icon>
+      </button>
+
+
+
+
+
+
+       <!-- <button ion-button block text-center round color="secondary" (click)="addNome()">Adicionar Nome </button>
+       <button ion-button block text-center round color="light" (click)="setNome()">Definir Nome </button>
+       <button ion-button block text-center round color="danger" (click)="getNome()">Pegar Nome </button>  
+       <button  ion-button block text-center round color="dark" (click)="goSettings()">Configurações</button> -->
+
+
+      
+
+
+
+     <ion-fab right bottom>
+        <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
+        <ion-fab-list side="left">
+        <button ion-fab (click)="goHelp()" ><ion-icon name="help"></ion-icon></button>
+
+        </ion-fab-list>
+      </ion-fab>
+
+
+</ion-content>
