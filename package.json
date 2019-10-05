@@ -1,6 +1,6 @@
 {
-  "name": "PergunteMe",
-  "version": "1.2",
+  "name": "pergunteme",
+  "version": "0.0.1",
   "author": "Diego Lopes",
   "homepage": "https://pixx1001.github.io/pme",
   "private": true,
@@ -40,7 +40,7 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "3.2.0",
+    "@ionic/app-scripts": "^3.2.4",
     "@ionic/lab": "1.0.9",
     "typescript": "~2.6.2"
   },
@@ -51,7 +51,9 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-app-preferences": {}
     },
