@@ -2,7 +2,7 @@
   "name": "pergunteme",
   "version": "0.0.1",
   "author": "Diego Lopes",
-  "homepage": "https://pixx1001.github.io/pme",
+  "homepage": "https://diegolopes.github.io/pme",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",

@@ -69,7 +69,7 @@ export class MyApp {
   }
 
   goSite(){
-    window.open("https://pixx1001.github.io/pme",'_system','location=yes')
+    window.open("https://diegolopes.github.io/pme",'_system','location=yes')
   }
   
 
@@ -157,7 +157,7 @@ sendReview(nome, dados){
 
   let options = new RequestOptions({ headers:headers,withCredentials: true});
 
-  var link = 'http://localhost/pme/api.php';
+  var link = 'http://appweb-server.000webhostapp.com/pme/api.php';
 
 
   var myData = JSON.stringify({nome:nome, review: dados , tipo: 'review' });

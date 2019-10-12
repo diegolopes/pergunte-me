@@ -2,7 +2,7 @@
 <widget id="io.ionic.pergunteme" version="1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>PergunteMe</name>
     <description>Um app simples e intrigante.</description>
-    <author email="diego.lopes@aluno.ifsp.edu.br" href="https://pixx1001.github.io/pme">Diego Lopes</author>
+    <author email="diego.lopes@aluno.ifsp.edu.br" href="https://diegolopes.github.io/pme">Diego Lopes</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

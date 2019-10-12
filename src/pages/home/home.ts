@@ -136,7 +136,7 @@ export class HomePage {
 
   
 
-      var link = 'http://localhost/pme/api.php';
+      var link = 'http://appweb-server.000webhostapp.com/pme/api.php';
     
       var myData = JSON.stringify({pergunta: this.inputValue,resposta:resposta,nome:'Usuário', tipo: 'pergunta'}); // AppPreferences: this.nomes
       
