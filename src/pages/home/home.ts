@@ -6,11 +6,11 @@ import { AlertController } from 'ionic-angular';
 import { HelpPage } from '../help/help';;
 import {Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Http,Headers, RequestOptions } from '@angular/http'; 
+import { Http,Headers, RequestOptions } from '@angular/http';
 import { ModalPage } from '../modal/modal';
 import {NavParams} from 'ionic-angular';
 import { AppPreferences } from '@ionic-native/app-preferences';
-
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 
 
 
@@ -23,7 +23,7 @@ import { AppPreferences } from '@ionic-native/app-preferences';
 export class HomePage {
 
 
-  constructor( 
+  constructor(
     platform: Platform,
     public navCtrl: NavController,
     public modalCtrl: ModalController,
@@ -31,8 +31,9 @@ export class HomePage {
     public statusBar: StatusBar,
     public params: NavParams,
     public http: Http,
-    public appPreferences: AppPreferences 
-    
+    public appPreferences: AppPreferences,
+    public db : FirebaseProvider
+
     ){
 
     }
@@ -60,9 +61,9 @@ export class HomePage {
 
     public getNome(){
       this.setNome()
-      
+
      }
- 
+
     //Array com respostas
     respostas : any[] = [
       'Sim.'
@@ -75,9 +76,9 @@ export class HomePage {
       ,'Não.'
       ,'Jamais'
       ,'Claro que não!'
-      ,'Tá viajando, cara? Claro que não'
-      ,'Éééééééééééééhhh.... Não!'
-      ,'Já falei que não, para de me perguntar isso'
+      ,'Tá viajando, cara? Claro que não.'
+      ,'Não mesmo!'
+      ,'Já falei que não, esquece isso.'
     ];
 
     public gerarResposta(){
@@ -99,7 +100,7 @@ export class HomePage {
               console.log('Clicked');
             }
           }
-  
+
         ]
       });
       alerta.present();
@@ -112,7 +113,7 @@ export class HomePage {
         let modalPage = this.modalCtrl.create('ModalPage', {item: this.inputValue, resposta:resposta} );
         modalPage.present();
         this.limpar();
-        
+
       }
     }
 
@@ -134,27 +135,39 @@ export class HomePage {
 
       let options = new RequestOptions({ headers:headers,withCredentials: true});
 
-  
 
-      var link = 'http://appweb-server.000webhostapp.com/pme/api.php';
-    
-      var myData = JSON.stringify({pergunta: this.inputValue,resposta:resposta,nome:'Usuário', tipo: 'pergunta'}); // AppPreferences: this.nomes
-      
+
+      var link = 'https://enalbz9bmx3c7.x.pipedream.net/';
+
+      var myData = JSON.stringify({pergunta: this.inputValue,resposta:resposta,nome:'Usuário', tipo: 'pergunta'});
+
+      this.db.save(
+        {
+          pergunta: this.inputValue,
+          resposta: resposta,
+          data: new Date().toUTCString(),
+          nome : 'Usuário anônimo',
+          tipo:'pergunta'
+        });
+
       this.http.post(link, myData)
       .subscribe(data => {
-      this.data.response = data["_body"]; //https://stackoverflow.com/questions/39574305/property-body-does-not-exist-on-type-response
+      this.data.response = data["_body"];
       }, error => {
       console.log(error);
       });
+
+
+
       }
 
     }
 
 
- 
 
 
-    
 
-  
+
+
+
 

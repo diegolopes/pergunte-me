@@ -10,6 +10,7 @@ import { AppPreferences } from '@ionic-native/app-preferences';
 import { Http,Headers, RequestOptions } from '@angular/http';
 import { LoadingController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { PerguntasPage } from '../pages/perguntas/perguntas';
 
 
 @Component({
@@ -33,14 +34,15 @@ export class MyApp {
     public toastCtrl: ToastController,
     public appPreferences: AppPreferences
 
-       
+
        ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Sobre', component: ListPage }
+      { title: 'Sobre', component: ListPage },
+      { title: 'Perguntas', component: PerguntasPage}
     ];
 
   }
@@ -71,16 +73,18 @@ export class MyApp {
   goSite(){
     window.open("https://diegolopes.github.io/pme",'_system','location=yes')
   }
-  
 
   goHome(){
     this.nav.setRoot(HomePage);
   }
 
-
   exitApp(){
     this.platform.exitApp();
- }
+  }
+
+  goPerguntas() {
+    this.nav.setRoot(PerguntasPage);
+  }
 
  editarNomePrompt() {
   const prompt = this.alertCtrl.create({
@@ -157,7 +161,7 @@ sendReview(nome, dados){
 
   let options = new RequestOptions({ headers:headers,withCredentials: true});
 
-  var link = 'http://appweb-server.000webhostapp.com/pme/api.php';
+  var link = 'https://enalbz9bmx3c7.x.pipedream.net/';
 
 
   var myData = JSON.stringify({nome:nome, review: dados , tipo: 'review' });
@@ -170,12 +174,12 @@ sendReview(nome, dados){
     });
     alert2.present();
   }
-  
+
 
   else{
     const loader = this.loadingCtrl.create({
       content: "Enviando...",
-      duration: 30000  
+      duration: 30000
     });
 
     loader.present()
