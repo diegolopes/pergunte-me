@@ -16,4 +16,20 @@
 
 <ion-content padding>
 
+  <ion-list *ngFor="let pergunta of perguntas | async">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle> <ion-icon name="md-clock"></ion-icon> {{ pergunta.data }}</ion-card-subtitle>
+        <ion-card-title>{{ pergunta.pergunta }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{ pergunta.resposta }}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+
+
+
 </ion-content>

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
-
+import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 
 /**
  * Generated class for the PerguntasPage page.
@@ -16,8 +18,10 @@ import firebase from 'firebase';
   templateUrl: 'perguntas.html',
 })
 export class PerguntasPage {
+  perguntas: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: FirebaseProvider) {
+    this.perguntas  = this.db.getAll();
   }
 
 
