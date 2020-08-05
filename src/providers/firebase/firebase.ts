@@ -5,6 +5,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
 import { firestore } from 'firebase';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
 
 
 /*
@@ -15,6 +16,8 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class FirebaseProvider {
+
+  perguntas : Observable<any>;
 
   constructor(public db: AngularFireDatabase, public fireStore : AngularFirestore) {
 
@@ -37,11 +40,8 @@ export class FirebaseProvider {
   // Retornar todas as perguntas
 
   getAll() {
-    return this.db.list('/perguntas', ref => ref.orderByChild('pergunta'))
-      .snapshotChanges()
-      .map(changes => {
-        return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-      })
+    return this.db.list('/perguntas', ref => ref.orderByChild('pergunta')).valueChanges()
+
   }
 
 }
