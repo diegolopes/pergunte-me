@@ -98,6 +98,7 @@ export class HomePage {
             text: 'OK',
             handler: data => {
               console.log('Clicked');
+     
             }
           }
 
@@ -129,6 +130,8 @@ export class HomePage {
     data:any = {};
 
     sendPergunta(resposta){
+
+
       var headers = new Headers();
       headers.append('Access-Control-Allow-Origin' , '*');
       headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
@@ -152,15 +155,15 @@ export class HomePage {
 
       this.http.post(link, myData)
       .subscribe(data => {
-      this.data.response = data["_body"];
-      }, error => {
-      console.log(error);
+        this.data.response = data["_body"];
+      },
+      error => {
+        console.log(error);
       });
 
 
 
-      }
-
+    }
     }
 
 

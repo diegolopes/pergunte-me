@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 
@@ -17,6 +17,8 @@ import { HttpModule} from '@angular/http';
 import { AppPreferences } from '@ionic-native/app-preferences';
 import { PerguntasPage } from '../pages/perguntas/perguntas';
 import { FirebaseProvider } from '../providers/firebase/firebase';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     AngularFireModule.initializeApp({
 
     }),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
 
 
   ],
@@ -47,12 +50,17 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     HelpPage,
     PerguntasPage
   ],
+
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
+
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AppPreferences,
-    FirebaseProvider
+    FirebaseProvider,
   ]
 })
 export class AppModule {}

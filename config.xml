@@ -92,5 +92,5 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova-plugin-app-preferences" spec="^0.99.3" />
     <engine name="ios" />
-    <engine name="android" spec="6.4.0" />
+    <engine name="android" spec="~6.4.0" />
 </widget>
