@@ -11,6 +11,8 @@ import { Http,Headers, RequestOptions } from '@angular/http';
 import { LoadingController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { PerguntasPage } from '../pages/perguntas/perguntas';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { FirebaseProvider } from '../providers/firebase/firebase';
 
 
 @Component({
@@ -32,7 +34,8 @@ export class MyApp {
     public http: Http,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
-    public appPreferences: AppPreferences
+    public appPreferences: AppPreferences,
+    public db: FirebaseProvider
 
 
        ) {
@@ -159,6 +162,8 @@ sendReview(nome, dados){
   headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
 
 
+  this.db.saveAvaliacao({nome:nome, avaliacao: dados});
+
   let options = new RequestOptions({ headers:headers,withCredentials: true});
 
   var link = 'https://enalbz9bmx3c7.x.pipedream.net/';
@@ -179,7 +184,7 @@ sendReview(nome, dados){
   else{
     const loader = this.loadingCtrl.create({
       content: "Enviando...",
-      duration: 30000
+      duration: 2000
     });
 
     loader.present()
