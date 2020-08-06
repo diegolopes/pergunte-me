@@ -6,7 +6,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { AppPreferences } from '@ionic-native/app-preferences';
 import { Http,Headers, RequestOptions } from '@angular/http';
 import { LoadingController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
@@ -34,7 +33,7 @@ export class MyApp {
     public http: Http,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
-    public appPreferences: AppPreferences,
+
     public db: FirebaseProvider
 
 
@@ -66,7 +65,7 @@ export class MyApp {
   }
 
   goSettings(){
-    this.appPreferences.show();
+
   }
 
   goAbout(){
@@ -143,7 +142,7 @@ avaliarPrompt() {
         text: 'Salvar',
         handler: data => {
           this.sendReview(data.nome, data.review);
-          this.appPreferences.store('nome',data.nome);
+
         }
       }
     ]
@@ -195,7 +194,7 @@ sendReview(nome, dados){
     }, error => {
       loader.dismiss();
       this.toastNetError();
-    });;
+    });
 
   }
 }

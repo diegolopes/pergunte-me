@@ -14,7 +14,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule} from '@angular/http';
-import { AppPreferences } from '@ionic-native/app-preferences';
+
 import { PerguntasPage } from '../pages/perguntas/perguntas';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -59,7 +59,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AppPreferences,
     FirebaseProvider,
   ]
 })

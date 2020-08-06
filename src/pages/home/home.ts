@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Http,Headers, RequestOptions } from '@angular/http';
 import { ModalPage } from '../modal/modal';
 import {NavParams} from 'ionic-angular';
-import { AppPreferences } from '@ionic-native/app-preferences';
+
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 
 
@@ -31,7 +31,7 @@ export class HomePage {
     public statusBar: StatusBar,
     public params: NavParams,
     public http: Http,
-    public appPreferences: AppPreferences,
+
     public db : FirebaseProvider
 
     ){
@@ -46,16 +46,14 @@ export class HomePage {
     }
 
     addNome(){
-      this.appPreferences.store('nome',this.inputValue)
+
     }
 
 
     nomes : any
 
     public setNome(){
-     this.appPreferences.fetch('nome').then((res) => {
-      this.nomes = res
-        })
+
     }
 
 
@@ -98,7 +96,7 @@ export class HomePage {
             text: 'OK',
             handler: data => {
               console.log('Clicked');
-     
+
             }
           }
 
@@ -108,7 +106,6 @@ export class HomePage {
     }
 
     else{
-        //LEMBRETE: Caso for usar o AppPreferences para pegar o nome, use aqui
         var resposta = this.gerarResposta();
         this.sendPergunta(resposta);
         let modalPage = this.modalCtrl.create('ModalPage', {item: this.inputValue, resposta:resposta} );
