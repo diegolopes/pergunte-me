@@ -21,7 +21,7 @@ export class PerguntasPage {
   perguntas: Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: FirebaseProvider) {
-    this.perguntas  = this.db.getAll();
+    this.perguntas = this.db.getAll();
   }
 
 

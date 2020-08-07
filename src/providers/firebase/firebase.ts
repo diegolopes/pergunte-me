@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase} from 'angularfire2/database';
-
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
-import { firestore } from 'firebase';
-import 'rxjs/add/operator/map';
+import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
-
+import 'rxjs/add/operator/map';
 
 /*
   Generated class for the FirebaseProvider provider.
@@ -38,10 +34,8 @@ export class FirebaseProvider {
   }
 
   // Retornar todas as perguntas
-
   getAll() {
     return this.db.list('/perguntas', ref => ref.orderByChild('pergunta')).valueChanges()
-
   }
 
 }
